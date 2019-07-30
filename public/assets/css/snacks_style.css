@@ -60,6 +60,10 @@ ul{
         width:auto;
         
     }
+    input{
+        width:125px;
+    }
+    
     .display-5 {
         font-size: 10px;
     }

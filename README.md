@@ -1,7 +1,21 @@
 # Scooby Snack Time
-Burger Game Using Sequelize
+Burger Game Using Sequelize. This is an update to the Eat Da Burger game which used MVC methodolgy. This application also implements Sequelize to create tables and add/modify records. Sequelize is also used to join tables which allowed for the addition of assigning "customers" to each snack.
 
 # Burger 2: The Sequel
+
+# Technology
+<ul>
+     <li>Node.js - https://nodejs.org/en/</li>
+     <li>MySQL - https://www.mysql.com/</li>
+     <li>Sequelize - https://sequelize.org</li>
+     <li>Handlebars - http://handlebarsjs.com/</li>
+     <li>Bootstrap - https://getbootstrap.com/docs/4.3/getting-started/introduction/</li> 
+</ul>
+
+![](public/assets/img/readme/snack1.jpg)
+
+# Mobile Responsive
+![](public/assets/img/readme/snack2.jpg)
 
 ### Overview
 
