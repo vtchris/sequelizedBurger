@@ -1,6 +1,7 @@
 var $burgerName = $("#name-txt");
 let $modal = $("#snack-modal");
 let $snackBtn = $("#feed-btn")
+let $imgPal = $("#imgPal")
 
 $burgerName.focus();
 
@@ -48,6 +49,15 @@ $(".js_deleteSnack").on("click",function(e){
         }
       );
 
+})
+$("#pal-select").on("change", function() {
+ 
+  if($("#pal-select").val() == 1){    
+    $imgPal.attr("src","assets/img/scooby.jpg")
+  }else{    
+    $imgPal.attr("src","assets/img/shaggy.jpg")
+  }
+  
 })
 
 $("#submit-btn").on("click",function(e){

@@ -10,8 +10,11 @@ router.get("/", function(req, res) {
     db.Snack.findAll({include: [db.Customer ],order: [['snack_name', 'ASC']]}).then(function(snackResp){
       
       db.Customer.findAll({order: [['customer_name', 'ASC']]}).then(function(customerResp){
+
+        let scoobyCount = customerResp[0].items_eaten;
+        let shaggyCount = customerResp[1].items_eaten;        
                
-        res.render("index",{snacks: snackResp,customers:customerResp});
+        res.render("index",{snacks: snackResp,customers:customerResp,scoobyCount: scoobyCount,shaggyCount: shaggyCount});
 
       })      
     })    
