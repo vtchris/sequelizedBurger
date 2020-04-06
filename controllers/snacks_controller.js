@@ -1,15 +1,19 @@
 //Dependencies
 var express = require("express");
 var router = express.Router();
-
 var db = require('../models');
 
-// Create all our routes and set up logic within those routes where required.
+//Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
    
     db.Snack.findAll({include: [db.Customer ],order: [['snack_name', 'ASC']]}).then(function(snackResp){
+
+      snackResp = snackResp.map(s => s.toJSON())
       
       db.Customer.findAll({order: [['customer_name', 'ASC']]}).then(function(customerResp){
+        
+        customerResp = customerResp.map(c => c.toJSON())
+        console.log(customerResp)
 
         let scoobyCount = customerResp[0].items_eaten;
         let shaggyCount = customerResp[1].items_eaten;        
@@ -23,7 +27,8 @@ router.get("/", function(req, res) {
 
     db.Snack.create({
       snack_name: req.body.snack_name
-    }).then(function(){
+    }).then(function(data){
+
       res.status(200).end();
     })
       
@@ -35,7 +40,7 @@ router.get("/", function(req, res) {
     {devoured: req.body.devoured,
       CustomerId: req.body.customer},{
       where: {id: id}
-    }).then(function(response){
+    }).then(function(response){      
 
       db.Customer.increment(
         {items_eaten:1}, {where: {id: req.body.customer}}
